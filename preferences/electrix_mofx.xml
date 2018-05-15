@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SynthDefinition_preferences doc_version="0">
+  <midi_out_device_name/>
+  <midi_device_id>0.0</midi_device_id>
+  <midi_in_device_name/>
+  <midi_in_channel>1.0</midi_in_channel>
+  <show_beta_dialog>false</show_beta_dialog>
+  <midi_out_channel>1.0</midi_out_channel>
+</SynthDefinition_preferences>

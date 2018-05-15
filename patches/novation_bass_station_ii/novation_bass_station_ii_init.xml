@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Guru_patch doc_version="0">
+  <synth_definition>Novation Bass Station II</synth_definition>
+  <name>Init</name>
+  <osc_1_range>1.0</osc_1_range>
+  <osc_1_fine>64</osc_1_fine>
+  <osc_1_coarse>65</osc_1_coarse>
+  <osc_1_waveform>1.0</osc_1_waveform>
+  <osc_1_mod_env_depth>63</osc_1_mod_env_depth>
+  <filter_frequency>65</filter_frequency>
+  <switch_example>2</switch_example>
+  <button_example>1.0</button_example>
+  <pitchbend_example>8192</pitchbend_example>
+  <callback_function_example>1.0</callback_function_example>
+  <dropdown_example>2</dropdown_example>
+  <device_id_example>0.0</device_id_example>
+  <slider_example>80</slider_example>
+  <cc_parameter_example>0.0</cc_parameter_example>
+  <nrpn_parameter_example>0.0</nrpn_parameter_example>
+  <dropdown_effect>1.0</dropdown_effect>
+  <effect_param_1>0.0</effect_param_1>
+  <effect_param_2>0.0</effect_param_2>
+</Guru_patch>

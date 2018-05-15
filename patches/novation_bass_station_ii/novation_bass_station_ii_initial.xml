@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Guru_patch doc_version="0">
+  <synth_definition>Novation Bass Station II</synth_definition>
+  <name>Initial</name>
+  <osc_1_range>1.0</osc_1_range>
+  <osc_1_fine>64</osc_1_fine>
+  <osc_1_coarse>65</osc_1_coarse>
+  <osc_1_waveform>1.0</osc_1_waveform>
+  <osc_1_mod_env_depth>63</osc_1_mod_env_depth>
+  <osc_1_lfo_depth>64</osc_1_lfo_depth>
+  <osc_1_mod_env_pw_mod_amount>63</osc_1_mod_env_pw_mod_amount>
+  <osc_1_LFO_2_PW>64</osc_1_LFO_2_PW>
+  <osc_1_pw_amount>64</osc_1_pw_amount>
+  <osc_2_range>1.0</osc_2_range>
+  <osc_2_fine>64</osc_2_fine>
+  <osc_2_coarse>65</osc_2_coarse>
+  <osc_2_waveform>1.0</osc_2_waveform>
+  <osc_2_mod_env_depth>63</osc_2_mod_env_depth>
+  <osc_2_lfo_1_depth>64</osc_2_lfo_1_depth>
+  <osc_2_mod_env_pw_mod_amount>63</osc_2_mod_env_pw_mod_amount>
+  <osc_2_LFO_2_PW>64</osc_2_LFO_2_PW>
+  <osc_2_pw_amount>64</osc_2_pw_amount>
+  <filter_frequency>65</filter_frequency>
+</Guru_patch>
