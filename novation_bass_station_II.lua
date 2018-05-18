@@ -170,23 +170,350 @@ local group_oscillator_2 = Group {
   }
 }
 
-
--- Filter group
-local group_filter = Group {
-  name = "Filter",
-    Parameter {
-    id = "filter_frequency",
-    name = "Frequency",
+-- SUB OSCILLATOR --
+local group_sub_oscillator = Group {
+  name = "Sub Oscillator",
+  Parameter {
+    id = "sub_osc_oct",
+    name = "Octave",
     type = "cc",
-    number = 16,
-    default_value = 65, 
+    number = 81,
+    default_value = 1,
+    items = {"-2","-1"},
+    item_values = {63, 64},
+  },
+    Parameter {
+    id = "sub_osc_waveform",
+    name = "Waveform", 
+    number = 80,
+    default_value = 1,
+    items = {"sine","square 1","square 2"},
+    item_values = {63, 64, 65},
+  }
+}
+
+-- MIXER --
+local group_mixer = Group {
+  name = "Mixer",
+  Parameter {
+    id = "osc_1_level",
+    name = "Osc 1 Level",
+    type = "cc",
+    number = 20,
+    default_value = 100,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+   Parameter {
+    id = "osc_2_level",
+    name = "Osc 2 Level",
+    type = "cc",
+    number = 21,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "sub_osc_level",
+    name = "Sub Osc Level",
+    type = "cc",
+    number = 22,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "noise_level",
+    name = "Noise Level",
+    type = "cc",
+    number = 23,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "ring_mod_level",
+    name = "Ring Mod Level",
+    type = "cc",
+    number = 24,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "external_signal_level",
+    name = "External Signal Level",
+    type = "cc",
+    number = 25,
+    default_value = 0,
     display_min_value = 0,
     display_max_value = 255
   }
 }
 
+-- FILTER __
+local group_filter = Group {
+  name = "Filter",
+    Parameter {
+      id = "filter_type",
+      name = "Type",
+      type = "cc",
+      number = 83,
+      default_value = 1, 
+      items = {"Classic","Acid"},
+      item_values = {63,64}
+    },
+    Parameter {
+      id = "filter_slope",
+      name = "Slope",
+      type = "cc",
+      number = 106,
+      default_value = 1, 
+      items = {"12","24"},
+      item_values = {63,64}
+    },
+    Parameter {
+      id = "filter_shape",
+      name = "Shape",
+      type = "cc",
+      number = 84,
+      default_value = 1, 
+      items = {"LP","BP","HP"},
+      item_values = {63,64,65}
+    },
+    Parameter {
+      id = "filter_frequency",
+      name = "Frequency",
+      type = "cc",
+      number = 16,
+      default_value = 65, 
+      display_min_value = 0,
+      display_max_value = 255
+  },
+    Parameter {
+      id = "filter_resonance",
+      name = "Resonance",
+      type = "cc",
+      number = 82,
+      default_value = 0, 
+      display_min_value = 0,
+      display_max_value = 127
+    },
+    Parameter {
+      id = "filter_mod_envelope_depth",
+      name = "Mod Env Depth",
+      type = "cc",
+      number = 85,
+      default_value = 50, 
+      display_min_value = -63,
+      display_max_value = 6
+    },
+    Parameter {
+      id = "lfo_2_depth",
+      name = "Mod Env Depth",
+      type = "cc",
+      number = 17,
+      default_value = 50, 
+      display_min_value = -127,
+      display_max_value = 127
+    },
+    Parameter {
+      id = "overdrive",
+      name = "Overdrive",
+      type = "cc",
+      number = 114,
+      default_value = 0, 
+      display_min_value = 0,
+      display_max_value = 127
+    },
+}
 
 
+-- PORTAMENTO --
+local group_portamento = Group {
+  name = "Portamento",
+  Parameter {
+    id = "portamento_time",
+    name = "Portamento Time",
+    type = "cc",
+    number = 81,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  }
+}
+
+-- LFOS --
+local group_lfos = Group {
+  name = "LFOs",
+  Parameter {
+    id = "lfo_1_speed",
+    name = "LFO 1 Speed",
+    type = "cc",
+    number = 18,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "lfo_1_delay",
+    name = "LFO 1 Delay",
+    type = "cc",
+    number = 86,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "lfo_2_speed",
+    name = "LFO 2 Speed",
+    type = "cc",
+    number = 19,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "lfo_2_delay",
+    name = "LFO 2 Delay",
+    type = "cc",
+    number = 87,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "lfo_1_wave",
+    name = "LFO 1 Wave",
+    type = "cc",
+    number = 88,
+    default_value = 1, 
+    items = {"Tri","Saw","Square","S+H"},
+    item_values = {63,64,65,66}
+  },
+  Parameter {
+    id = "lfo_2_wave",
+    name = "LFO 2 Wave",
+    type = "cc",
+    number = 89,
+    default_value = 1, 
+    items = {"Tri","Saw","Square","S+H"},
+    item_values = {63,64,65,66}
+  },
+  Parameter {
+    id = "lfo_1_sync",
+    name = "LFO 1 Sync",
+    type = "nrpn",
+    number = 87,
+    default_value = 1, 
+    items = {"1/8","1/4","1/2","1"},
+    item_values = {63,64,65,66}
+  },
+  Parameter {
+    id = "lfo_2_sync",
+    name = "LFO 2 Sync",
+    type = "nrpn",
+    number = 91,
+    default_value = 1, 
+    items = {"1/8","1/4","1/2","1"},
+    item_values = {63,64,65,66}
+  },
+  Parameter {
+    id = "key_sync_lfo_1",
+    name = "LFO 1 Key Sync",
+    type = "nrpn",
+    number = 89,
+    default_value = 1, 
+    items = {"OFF","ON"},
+    item_values = {0,1}
+  },
+  Parameter {
+    id = "key_sync_lfo_2",
+    name = "LFO 2 Key Sync",
+    type = "nrpn",
+    number = 93,
+    default_value = 1, 
+    items = {"OFF","ON"},
+    item_values = {0,1}
+  },
+  Parameter {
+    id = "speed_sync_lfo_2",
+    name = "LFO 2 Speed/Sync",
+    type = "nrpn",
+    number = 91,
+    default_value = 1, 
+    items = {"Speed","Sync"},
+    item_values = {0,1}
+  },
+  Parameter {
+    id = "slew_lfo_1",
+    name = "LFO 1 Slew",
+    type = "nrpn",
+    number = 86,
+    default_value = 0, 
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "slew_lfo_2",
+    name = "LFO 2 Slew",
+    type = "nrpn",
+    number = 90,
+    default_value = 0, 
+    display_min_value = 0,
+    display_max_value = 127
+  },
+}
+
+-- Envelope --
+local group_envelope = Group {
+  name = "Envelope",
+  Parameter {
+    id = "amp_env_attack",
+    name = "Amp Env Attack",
+    type = "cc",
+    number = 90,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "amp_env_decay",
+    name = "Amp Env Decay",
+    type = "cc",
+    number = 91,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "amp_env_sustain",
+    name = "Amp Env Sustain",
+    type = "cc",
+    number = 92,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "amp_env_release",
+    name = "Amp Env Release",
+    type = "cc",
+    number = 93,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "amp_env_triggering",
+    name = "Amp Env Triggering",
+    type = "nrpn",
+    number = 73,
+    default_value = 1, 
+    items = {"Multi","Single","Auto"},
+    item_values = {0,1,2}
+  }
+}
 
 -- VCO 1 group
 local group_vco1 = Group {
@@ -322,7 +649,12 @@ return SynthDefinition {
     sysex_message_template = { 0xf0, 0x00, 0x20, 0x29, 0x00, 0x33, 0x00, 0x40, 0xf7},
     group_oscillator_1,
     group_oscillator_2,
-    group_filter
+    group_sub_oscillator,
+    group_mixer,
+    group_filter,
+    group_portamento,
+    group_lfos,
+    group_envelope
    -- group_vco1,
     --group_vcf,
     --group_dropdown_selection
