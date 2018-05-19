@@ -583,6 +583,30 @@ local group_effects = Group {
   } 
 }
 
+
+-- VELOCITY --
+local group_velocity = Group {
+  name = "Velocity",
+  Parameter {
+    id = "amp_env",
+    name = "Amp Env",
+    type = "cc",
+    number = 112,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "mod_env",
+    name = "Mod Env",
+    type = "cc",
+    number = 113,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  } 
+}
+
 -- VCO 1 group
 local group_vco1 = Group {
   name = "VCO 1",
@@ -723,7 +747,8 @@ return SynthDefinition {
     group_portamento,
     group_lfos,
     group_envelope,
-    group_effects
+    group_effects,
+    group_velocity
    -- group_vco1,
     --group_vcf,
     --group_dropdown_selection
