@@ -512,7 +512,75 @@ local group_envelope = Group {
     default_value = 1, 
     items = {"Multi","Single","Auto"},
     item_values = {0,1,2}
+  },
+  Parameter {
+    id = "mod_env_attack",
+    name = "Mod Env Attack",
+    type = "cc",
+    number = 102,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "mod_env_decay",
+    name = "Mod Env Decay",
+    type = "cc",
+    number = 103,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "mod_env_sustain",
+    name = "Mod Env Sustain",
+    type = "cc",
+    number = 104,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "mod_env_release",
+    name = "Mod Env Release",
+    type = "cc",
+    number = 105,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "mod_env_triggering",
+    name = "Mod Env Triggering",
+    type = "nrpn",
+    number = 105,
+    default_value = 1, 
+    items = {"Multi","Single","Auto"},
+    item_values = {0,1,2}
   }
+}
+
+-- Effects --
+local group_effects = Group {
+  name = "Effects",
+  Parameter {
+    id = "effects_distortion",
+    name = "Distortion",
+    type = "cc",
+    number = 94,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "effects_osc_filter_mod",
+    name = "Osc Filter Mod",
+    type = "cc",
+    number = 115,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  } 
 }
 
 -- VCO 1 group
@@ -654,7 +722,8 @@ return SynthDefinition {
     group_filter,
     group_portamento,
     group_lfos,
-    group_envelope
+    group_envelope,
+    group_effects
    -- group_vco1,
     --group_vcf,
     --group_dropdown_selection

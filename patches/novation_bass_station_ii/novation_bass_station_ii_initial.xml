@@ -20,5 +20,39 @@
   <osc_2_mod_env_pw_mod_amount>63</osc_2_mod_env_pw_mod_amount>
   <osc_2_LFO_2_PW>64</osc_2_LFO_2_PW>
   <osc_2_pw_amount>64</osc_2_pw_amount>
+  <sub_osc_oct>1.0</sub_osc_oct>
+  <sub_osc_waveform>1.0</sub_osc_waveform>
+  <osc_1_level>110</osc_1_level>
+  <osc_2_level>0.0</osc_2_level>
+  <sub_osc_level>0.0</sub_osc_level>
+  <noise_level>0.0</noise_level>
+  <ring_mod_level>0.0</ring_mod_level>
+  <external_signal_level>0.0</external_signal_level>
+  <filter_type>1.0</filter_type>
+  <filter_slope>1.0</filter_slope>
+  <filter_shape>1.0</filter_shape>
   <filter_frequency>65</filter_frequency>
+  <filter_resonance>0.0</filter_resonance>
+  <filter_mod_envelope_depth>50</filter_mod_envelope_depth>
+  <lfo_2_depth>50</lfo_2_depth>
+  <overdrive>0.0</overdrive>
+  <portamento_time>0.0</portamento_time>
+  <lfo_1_speed>0.0</lfo_1_speed>
+  <lfo_1_delay>0.0</lfo_1_delay>
+  <lfo_2_speed>0.0</lfo_2_speed>
+  <lfo_2_delay>0.0</lfo_2_delay>
+  <lfo_1_wave>1.0</lfo_1_wave>
+  <lfo_2_wave>1.0</lfo_2_wave>
+  <lfo_1_sync>1.0</lfo_1_sync>
+  <lfo_2_sync>1.0</lfo_2_sync>
+  <key_sync_lfo_1>1.0</key_sync_lfo_1>
+  <key_sync_lfo_2>1.0</key_sync_lfo_2>
+  <speed_sync_lfo_2>1.0</speed_sync_lfo_2>
+  <slew_lfo_1>0.0</slew_lfo_1>
+  <slew_lfo_2>0.0</slew_lfo_2>
+  <amp_env_attack>0.0</amp_env_attack>
+  <amp_env_decay>0.0</amp_env_decay>
+  <amp_env_sustain>0.0</amp_env_sustain>
+  <amp_env_release>0.0</amp_env_release>
+  <amp_env_triggering>1.0</amp_env_triggering>
 </Guru_patch>
