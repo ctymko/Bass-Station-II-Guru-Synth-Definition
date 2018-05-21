@@ -80,6 +80,24 @@ local group_oscillator_1 = Group {
     default_value = 64, 
     display_min_value = -90,
     display_max_value = 90
+  },
+    Parameter {
+    id = "bend_amount",
+    name = "Bend_Amount",
+    type = "cc",
+    number = 107,
+    default_value = 1, 
+    display_min_value = 1,
+    display_max_value = 12
+  },
+  Parameter {
+    id = "osc_1_2_sync",
+    name = "Osc Sync",
+    type = "cc",
+    number = 110,
+    default_value = 1,
+    items = {"Off","On"},
+    item_values = {1,2}
   }
   
   
@@ -248,6 +266,15 @@ local group_mixer = Group {
     default_value = 0,
     display_min_value = 0,
     display_max_value = 255
+  },
+  Parameter {
+    id = "limiter",
+    name = "Limiter",
+    type = "cc",
+    number = 95,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
   }
 }
 
@@ -326,21 +353,6 @@ local group_filter = Group {
       display_min_value = 0,
       display_max_value = 127
     },
-}
-
-
--- PORTAMENTO --
-local group_portamento = Group {
-  name = "Portamento",
-  Parameter {
-    id = "portamento_time",
-    name = "Portamento Time",
-    type = "cc",
-    number = 81,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 127
-  }
 }
 
 -- LFOS --
@@ -463,6 +475,21 @@ local group_lfos = Group {
     display_min_value = 0,
     display_max_value = 127
   },
+}
+
+
+-- PORTAMENTO --
+local group_portamento = Group {
+  name = "Portamento",
+  Parameter {
+    id = "portamento_time",
+    name = "Portamento Time",
+    type = "cc",
+    number = 81,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  }
 }
 
 -- Envelope --
@@ -607,6 +634,97 @@ local group_velocity = Group {
   } 
 }
 
+-- ARPEGGIATOR --
+local group_arp = Group {
+  name = "Arpeggiator",
+  Parameter {
+    id = "arp_on",
+    name = "On",
+    type = "cc",
+    number = 108,
+    default_value = 1, 
+    items = {"Off","On"},
+    item_values = {1,2}
+  },
+  Parameter {
+    id = "arp_retrig",
+    name = "Retrig",
+    type = "nrpn",
+    number = 106,
+    default_value = 1, 
+    items = {"Off","On"},
+    item_values = {1,2}
+  },
+  Parameter {
+    id = "arp_latch",
+    name = "Latch",
+    type = "cc",
+    number = 109,
+    default_value = 1, 
+    items = {"Off","On"},
+    item_values = {1,2}
+  },
+  Parameter {
+    id = "arp_rhythm",
+    name = "Rhythm",
+    type = "cc",
+    number = 119,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 32
+  },
+  Parameter {
+    id = "arp_swing",
+    name = "Swing",
+    type = "cc",
+    number = 116,
+    default_value = 0,
+    display_min_value = 3,
+    display_max_value = 97
+  },
+  Parameter {
+    id = "arp_note_mode",
+    name = "Note Mode",
+    number = 118,
+    default_value = 1,
+    items = {"Up","Down","UpDown1","UpDown2","Played","Random","Play","Record"},
+    item_values = {1,2,3,4,5,6,7,8},
+    gui_type = "dropdown"
+  },
+  Parameter {
+    id = "arp_octaves",
+    name = "Octaves",
+    type = "cc",
+    number = 111,
+    default_value = 1, 
+    items = {"1","2","3","4"},
+    item_values = {1,2,3,4}
+  }  
+}
+
+-- AFTERTOUCH --
+local group_aftertouch = Group {
+  name = "Aftertouch",
+  Parameter {
+    id = "aftertouch_filter_freq",
+    name = "Filter Freq",
+    type = "nrpn",
+    number = 74,
+    default_value = 0,
+    display_min_value = -63,
+    display_max_value = 63
+  },
+  Parameter {
+    id = "lfo_1_to_osc_pitch",
+    name = "LFO 1 to Osc Pitch",
+    type = "nrpn",
+    number = 75,
+    default_value = 0,
+    display_min_value = -63,
+    display_max_value = 63
+  },
+}
+
 -- VCO 1 group
 local group_vco1 = Group {
   name = "VCO 1",
@@ -742,13 +860,15 @@ return SynthDefinition {
     group_oscillator_1,
     group_oscillator_2,
     group_sub_oscillator,
+    group_portamento,
     group_mixer,
     group_filter,
-    group_portamento,
     group_lfos,
     group_envelope,
     group_effects,
-    group_velocity
+    group_velocity,
+    group_arp,
+    group_aftertouch
    -- group_vco1,
     --group_vcf,
     --group_dropdown_selection
