@@ -331,16 +331,16 @@ local group_filter = Group {
       name = "Mod Env Depth",
       type = "cc",
       number = 85,
-      default_value = 50, 
+      default_value = 63, 
       display_min_value = -63,
-      display_max_value = 6
+      display_max_value = 63
     },
     Parameter {
       id = "lfo_2_depth",
-      name = "Mod Env Depth",
+      name = "LFO 2 Depth",
       type = "cc",
       number = 17,
-      default_value = 50, 
+      default_value = 63, 
       display_min_value = -127,
       display_max_value = 127
     },
@@ -418,8 +418,13 @@ local group_lfos = Group {
     type = "nrpn",
     number = 87,
     default_value = 1, 
-    items = {"1/8","1/4","1/2","1"},
-    item_values = {63,64,65,66}
+    items = {"64 beats", "48 beats", "42 beats", "36 beats", "32 beats", "30 beats", "28 beats", "24 beats",
+               "24 + 1/3  beats", "20 beats", "18 + 2.3 beats", "18 beats", "16 beats", "13 + 1/3 beats", "12 beats",
+               "10 + 2/3 beats", "8 beats", "6 beats", "5 + 1/3  beats", "4 beats", "3 beats", "2 + 2/3 beats", 
+               "2nd", "4th dotted", "1 + 1/3 beats", "4th", "8th dotted", "4th triplet", "8th", "16th dotted",
+               "8th triplet", "16th", "16th triplet", "32nd", "32nd triplet"},
+    item_values = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35},
+    gui_type = "dropdown"
   },
   Parameter {
     id = "lfo_2_sync",
@@ -427,8 +432,13 @@ local group_lfos = Group {
     type = "nrpn",
     number = 91,
     default_value = 1, 
-    items = {"1/8","1/4","1/2","1"},
-    item_values = {63,64,65,66}
+    items = {"64 beats", "48 beats", "42 beats", "36 beats", "32 beats", "30 beats", "28 beats", "24 beats",
+               "24 + 1/3  beats", "20 beats", "18 + 2.3 beats", "18 beats", "16 beats", "13 + 1/3 beats", "12 beats",
+               "10 + 2/3 beats", "8 beats", "6 beats", "5 + 1/3  beats", "4 beats", "3 beats", "2 + 2/3 beats", 
+               "2nd", "4th dotted", "1 + 1/3 beats", "4th", "8th dotted", "4th triplet", "8th", "16th dotted",
+               "8th triplet", "16th", "16th triplet", "32nd", "32nd triplet"},
+    item_values = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35},
+    gui_type = "dropdown"
   },
   Parameter {
     id = "key_sync_lfo_1",
