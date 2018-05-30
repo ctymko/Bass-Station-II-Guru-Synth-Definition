@@ -6,7 +6,7 @@ local group_oscillator_1 = Group {
     name = "Range",
     type = "cc",
     number = 70,
-    default_value = 1,
+    default_value = 2,
     items = {"16'","8'","4'","2'"},
     item_values = {63,64,65,66},
   },
@@ -15,7 +15,7 @@ local group_oscillator_1 = Group {
     name = "Fine",
     type = "cc",
     number = 26,
-    default_value = 64, 
+    default_value = 63, 
     display_min_value = -100,
     display_max_value = 100
   },
@@ -33,6 +33,7 @@ local group_oscillator_1 = Group {
     name = "Waveform", 
     type = "nrpn",
     number = 72,
+    default_value = 3, 
     items = {"sine","tri","saw","pulse"},
     item_values = {0,1,2,3},
   },
@@ -218,7 +219,7 @@ local group_mixer = Group {
     name = "Osc 1 Level",
     type = "cc",
     number = 20,
-    default_value = 100,
+    default_value = 127,
     display_min_value = 0,
     display_max_value = 255
   },
@@ -288,32 +289,32 @@ local group_filter = Group {
       number = 83,
       default_value = 1, 
       items = {"Classic","Acid"},
-      item_values = {63,64}
+      item_values = {0,1}
     },
     Parameter {
       id = "filter_slope",
       name = "Slope",
       type = "cc",
       number = 106,
-      default_value = 1, 
+      default_value = 2, 
       items = {"12","24"},
-      item_values = {63,64}
+      item_values = {0,1}
     },
     Parameter {
       id = "filter_shape",
       name = "Shape",
       type = "cc",
       number = 84,
-      default_value = 1, 
+      --default_value = 1, 
       items = {"LP","BP","HP"},
-      item_values = {63,64,65}
+      item_values = {0,1,2}
     },
     Parameter {
       id = "filter_frequency",
       name = "Frequency",
       type = "cc",
       number = 16,
-      default_value = 65, 
+      default_value = 127, 
       display_min_value = 0,
       display_max_value = 255
   },
@@ -495,7 +496,7 @@ local group_portamento = Group {
     id = "portamento_time",
     name = "Portamento Time",
     type = "cc",
-    number = 81,
+    number = 5,
     default_value = 0,
     display_min_value = 0,
     display_max_value = 127
@@ -873,14 +874,11 @@ return SynthDefinition {
     group_portamento,
     group_mixer,
     group_filter,
-    group_lfos,
-    group_envelope,
-    group_effects,
-    group_velocity,
-    group_arp,
-    group_aftertouch
-   -- group_vco1,
-    --group_vcf,
-    --group_dropdown_selection
+  --  group_lfos,
+ -- group_envelope,
+ --  group_effects,
+ -- group_velocity,
+ --   group_arp,
+ -- group_aftertouch
   }
 }
