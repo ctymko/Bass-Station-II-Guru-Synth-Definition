@@ -89,7 +89,9 @@ local group_oscillator_1 = Group {
     number = 107,
     default_value = 1, 
     display_min_value = 1,
-    display_max_value = 12
+    display_max_value = 12,
+    min_value = 1,
+    max_value = 12
   },
   Parameter {
     id = "osc_1_2_sync",
@@ -98,7 +100,7 @@ local group_oscillator_1 = Group {
     number = 110,
     default_value = 1,
     items = {"Off","On"},
-    item_values = {1,2}
+    item_values = {0,1}
   }
   
   
@@ -189,7 +191,7 @@ local group_oscillator_2 = Group {
   }
 }
 
--- SUB OSCILLATOR --
+-- SUB OSCILLATOR --------------------------------------------
 local group_sub_oscillator = Group {
   name = "Sub Oscillator",
   Parameter {
@@ -198,16 +200,17 @@ local group_sub_oscillator = Group {
     type = "cc",
     number = 81,
     default_value = 1,
-    items = {"-2","-1"},
-    item_values = {63, 64},
+    items = {"-1","-2"},
+    item_values = {63},
   },
     Parameter {
     id = "sub_osc_waveform",
     name = "Waveform", 
+    type ="cc",
     number = 80,
     default_value = 1,
-    items = {"sine","square 1","square 2"},
-    item_values = {63, 64, 65},
+    items = {"sine","sq1","sq2"},
+    item_values = {0,1,2},
   }
 }
 
@@ -279,7 +282,7 @@ local group_mixer = Group {
   }
 }
 
--- FILTER __
+-- FILTER ------------------------------------------------------
 local group_filter = Group {
   name = "Filter",
     Parameter {
@@ -356,7 +359,7 @@ local group_filter = Group {
     },
 }
 
--- LFOS --
+-- LFOS -------------------------------------------
 local group_lfos = Group {
   name = "LFOs",
   Parameter {
@@ -402,7 +405,7 @@ local group_lfos = Group {
     number = 88,
     default_value = 1, 
     items = {"Tri","Saw","Square","S+H"},
-    item_values = {63,64,65,66}
+    item_values = {0,1,2,3}
   },
   Parameter {
     id = "lfo_2_wave",
@@ -411,7 +414,7 @@ local group_lfos = Group {
     number = 89,
     default_value = 1, 
     items = {"Tri","Saw","Square","S+H"},
-    item_values = {63,64,65,66}
+    item_values = {0,1,2,3}
   },
   Parameter {
     id = "lfo_1_sync",
@@ -424,7 +427,7 @@ local group_lfos = Group {
                "10 + 2/3 beats", "8 beats", "6 beats", "5 + 1/3  beats", "4 beats", "3 beats", "2 + 2/3 beats", 
                "2nd", "4th dotted", "1 + 1/3 beats", "4th", "8th dotted", "4th triplet", "8th", "16th dotted",
                "8th triplet", "16th", "16th triplet", "32nd", "32nd triplet"},
-    item_values = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35},
+    item_values = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34},
     gui_type = "dropdown"
   },
   Parameter {
@@ -438,7 +441,7 @@ local group_lfos = Group {
                "10 + 2/3 beats", "8 beats", "6 beats", "5 + 1/3  beats", "4 beats", "3 beats", "2 + 2/3 beats", 
                "2nd", "4th dotted", "1 + 1/3 beats", "4th", "8th dotted", "4th triplet", "8th", "16th dotted",
                "8th triplet", "16th", "16th triplet", "32nd", "32nd triplet"},
-    item_values = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35},
+    item_values = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34},
     gui_type = "dropdown"
   },
   Parameter {
@@ -460,10 +463,19 @@ local group_lfos = Group {
     item_values = {0,1}
   },
   Parameter {
+    id = "speed_sync_lfo_1",
+    name = "LFO 1 Speed/Sync",
+    type = "nrpn",
+    number = 88,
+    default_value = 1, 
+    items = {"Speed","Sync"},
+    item_values = {0,1}
+  },
+  Parameter {
     id = "speed_sync_lfo_2",
     name = "LFO 2 Speed/Sync",
     type = "nrpn",
-    number = 91,
+    number = 92,
     default_value = 1, 
     items = {"Speed","Sync"},
     item_values = {0,1}
@@ -503,7 +515,7 @@ local group_portamento = Group {
   }
 }
 
--- Envelope --
+-- Envelope ------------------------------------------
 local group_envelope = Group {
   name = "Envelope",
   Parameter {
@@ -529,7 +541,7 @@ local group_envelope = Group {
     name = "Amp Env Sustain",
     type = "cc",
     number = 92,
-    default_value = 0,
+    default_value = 127,
     display_min_value = 0,
     display_max_value = 127
   },
@@ -598,7 +610,7 @@ local group_envelope = Group {
   }
 }
 
--- Effects --
+-- Effects --------------------------------------
 local group_effects = Group {
   name = "Effects",
   Parameter {
@@ -630,7 +642,7 @@ local group_velocity = Group {
     name = "Amp Env",
     type = "cc",
     number = 112,
-    default_value = 0,
+    default_value = 127,
     display_min_value = 0,
     display_max_value = 127
   },
@@ -639,13 +651,13 @@ local group_velocity = Group {
     name = "Mod Env",
     type = "cc",
     number = 113,
-    default_value = 0,
+    default_value = 127,
     display_min_value = 0,
     display_max_value = 127
   } 
 }
 
--- ARPEGGIATOR --
+-- ARPEGGIATOR ----------------------------------
 local group_arp = Group {
   name = "Arpeggiator",
   Parameter {
@@ -655,7 +667,7 @@ local group_arp = Group {
     number = 108,
     default_value = 1, 
     items = {"Off","On"},
-    item_values = {1,2}
+    item_values = {0,1}
   },
   Parameter {
     id = "arp_retrig",
@@ -664,7 +676,7 @@ local group_arp = Group {
     number = 106,
     default_value = 1, 
     items = {"Off","On"},
-    item_values = {1,2}
+    item_values = {0,1}
   },
   Parameter {
     id = "arp_latch",
@@ -673,7 +685,7 @@ local group_arp = Group {
     number = 109,
     default_value = 1, 
     items = {"Off","On"},
-    item_values = {1,2}
+    item_values = {0,1}
   },
   Parameter {
     id = "arp_rhythm",
@@ -682,7 +694,9 @@ local group_arp = Group {
     number = 119,
     default_value = 0,
     display_min_value = 0,
-    display_max_value = 32
+    display_max_value = 31,
+    min_value = 0,
+    max_value = 31
   },
   Parameter {
     id = "arp_swing",
@@ -696,10 +710,11 @@ local group_arp = Group {
   Parameter {
     id = "arp_note_mode",
     name = "Note Mode",
+    type = "cc",
     number = 118,
     default_value = 1,
     items = {"Up","Down","UpDown1","UpDown2","Played","Random","Play","Record"},
-    item_values = {1,2,3,4,5,6,7,8},
+    item_values = {0,1,2,3,4,5,6,7},
     gui_type = "dropdown"
   },
   Parameter {
@@ -736,128 +751,7 @@ local group_aftertouch = Group {
   },
 }
 
--- VCO 1 group
-local group_vco1 = Group {
-  name = "VCO 1",
-  Parameter {
-    id = "switch_example",
-    name = "Switch example",
-    number = 11,
-    default_value = 2,
-    items = {"16'","8'","4'","2'"}
-  },
-  Parameter {
-    id = "button_example",
-    name = "Button example",
-    number = 10,
-    items = {"Click"},
-    item_values = {127}
-  },  
-  Parameter {
-    id = "pitchbend_example",
-    name = "Pitchbend example",
-    type = "pitchbend"
-  },
-  Parameter {
-    id = "callback_function_example",
-    name = "Callback example",
-    number = 16,
-    items = {"16'","8'","4'","2'"},
-    item_values = {0,32,64,96},
-    value_callback = function(parameter,midi_value)
-      local synth_definition = parameter.synth_definition
-      --Here's how to change the value of a parameter:
-      --synth_definition.parameters["pitchbend_example"]:value(500)
-      --synth_definition.parameters["switch_example"]:value(0)
-      --synth_definition.parameters["dropdown_example"]:value(32)
-      local other_parameter = synth_definition.parameters["switch_example"]
-      return parameter:value() + other_parameter:value()
-    end
-  },
-  Parameter {
-    id = "dropdown_example",
-    name = "dropdown example",
-    number = 11,
-    default_value = 2,
-    items = {"Long text","Here too","And here","Garrhh"},
-    item_values = {0,32,64,96},
-    gui_type = "dropdown"
-  },
-  Parameter {
-    id = "device_id_example",
-    name = "device id example",
-    number = 1,
-    sysex_message_template = {0xf0, 0x00, 0x20, 0x29, 0x00, 0x33, 0x00, 0x40, 0xf7},
-  }
-}
-
--- VCF group
-local group_vcf = Group {
-  name = "VCF",
-  Parameter {
-    id = "slider_example",
-    name = "Slider example",
-    number = 16,
-    default_value = 10,
-    randomize_min = 0,
-    randomize_max = 20,
-    display_min_value = -64,
-    display_max_value = 63
-  },
-  Parameter {
-    id = "cc_parameter_example",
-    name = "CC example",
-    type = "cc",
-    number = 14,
-    display_min_value = -50,
-    display_max_value = 250
-  },
-  Parameter {
-    id = "nrpn_parameter_example",
-    name = "NRPN example",
-    type = "nrpn",
-    number = 227
-  }
-}
-
-local group_dropdown_selection = Group {
-  name = "Effect",
-  Parameter {
-    id = "dropdown_effect",
-    name = "Effect",
-    number = 10,
-    gui_type = "dropdown",
-    items = {"Reverb","Delay"},
-    value_callback = function(parameter,midi_value)
-      local vb = parameter.synth_definition.view_builder
-      if parameter:value() == 0 then
-        vb.views["label_effect_param_1"].text = "Size"
-        vb.views["label_effect_param_2"].text = ""
-        vb.views["effect_param_1"].active = true
-        vb.views["effect_param_2"].active = false
-      elseif parameter:value() == 1 then
-        vb.views["label_effect_param_1"].text = "Time"
-        vb.views["label_effect_param_2"].text = "Stereo"
-        vb.views["effect_param_1"].active = true
-        vb.views["effect_param_2"].active = true
-      end
-    end
-  },  
-  Parameter {
-    id = "effect_param_1",
-    name = "Effect param 1",
-    type = "cc",
-    number = 14
-  },
-  Parameter {
-    id = "effect_param_2",
-    name = "Effect param 2",
-    type = "cc",
-    number = 15
-  }
-}
-
--- Synth definition
+-- Synth definition -----------------------------------------------------------
 return SynthDefinition {
   id = "novation_bass_station_ii",
   name = "Novation Bass Station II",
@@ -874,11 +768,11 @@ return SynthDefinition {
     group_portamento,
     group_mixer,
     group_filter,
-  --  group_lfos,
- -- group_envelope,
- --  group_effects,
- -- group_velocity,
- --   group_arp,
- -- group_aftertouch
+    group_lfos,
+    group_envelope,
+    group_effects,
+    group_velocity,
+    group_arp,
+    group_aftertouch
   }
 }
