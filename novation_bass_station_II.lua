@@ -359,9 +359,9 @@ local group_filter = Group {
     },
 }
 
--- LFOS -------------------------------------------
-local group_lfos = Group {
-  name = "LFOs",
+-- LFO 1 -------------------------------------------
+local group_lfo_1 = Group {
+  name = "LFO 1",
   Parameter {
     id = "lfo_1_speed",
     name = "LFO 1 Speed",
@@ -381,37 +381,10 @@ local group_lfos = Group {
     display_max_value = 127
   },
   Parameter {
-    id = "lfo_2_speed",
-    name = "LFO 2 Speed",
-    type = "cc",
-    number = 19,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-  Parameter {
-    id = "lfo_2_delay",
-    name = "LFO 2 Delay",
-    type = "cc",
-    number = 87,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 127
-  },
-  Parameter {
     id = "lfo_1_wave",
     name = "LFO 1 Wave",
     type = "cc",
     number = 88,
-    default_value = 1, 
-    items = {"Tri","Saw","Square","S+H"},
-    item_values = {0,1,2,3}
-  },
-  Parameter {
-    id = "lfo_2_wave",
-    name = "LFO 2 Wave",
-    type = "cc",
-    number = 89,
     default_value = 1, 
     items = {"Tri","Saw","Square","S+H"},
     item_values = {0,1,2,3}
@@ -431,6 +404,66 @@ local group_lfos = Group {
     gui_type = "dropdown"
   },
   Parameter {
+    id = "key_sync_lfo_1",
+    name = "LFO 1 Key Sync",
+    type = "nrpn",
+    number = 89,
+    default_value = 1, 
+    items = {"Off","On"},
+    item_values = {0,1}
+  },
+  Parameter {
+    id = "speed_sync_lfo_1",
+    name = "LFO 1 Speed/Sync",
+    type = "nrpn",
+    number = 88,
+    default_value = 1, 
+    items = {"Speed","Sync"},
+    item_values = {0,1}
+  },
+  Parameter {
+    id = "slew_lfo_1",
+    name = "LFO 1 Slew",
+    type = "nrpn",
+    number = 86,
+    default_value = 0, 
+    display_min_value = 0,
+    display_max_value = 127
+  },
+}
+
+
+-- LFO 2 -------------------------------------------
+local group_lfo_2 = Group {
+  name = "LFO 2",
+  Parameter {
+    id = "lfo_2_speed",
+    name = "LFO 2 Speed",
+    type = "cc",
+    number = 19,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 255
+  },
+  Parameter {
+    id = "lfo_2_delay",
+    name = "LFO 2 Delay",
+    type = "cc",
+    number = 87,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "lfo_2_wave",
+    name = "LFO 2 Wave",
+    type = "cc",
+    number = 89,
+    default_value = 1, 
+    items = {"Tri","Saw","Square","S+H"},
+    item_values = {0,1,2,3}
+  },
+  Parameter {
     id = "lfo_2_sync",
     name = "LFO 2 Sync",
     type = "nrpn",
@@ -445,30 +478,12 @@ local group_lfos = Group {
     gui_type = "dropdown"
   },
   Parameter {
-    id = "key_sync_lfo_1",
-    name = "LFO 1 Key Sync",
-    type = "nrpn",
-    number = 89,
-    default_value = 1, 
-    items = {"OFF","ON"},
-    item_values = {0,1}
-  },
-  Parameter {
     id = "key_sync_lfo_2",
     name = "LFO 2 Key Sync",
     type = "nrpn",
     number = 93,
     default_value = 1, 
-    items = {"OFF","ON"},
-    item_values = {0,1}
-  },
-  Parameter {
-    id = "speed_sync_lfo_1",
-    name = "LFO 1 Speed/Sync",
-    type = "nrpn",
-    number = 88,
-    default_value = 1, 
-    items = {"Speed","Sync"},
+    items = {"Off","On"},
     item_values = {0,1}
   },
   Parameter {
@@ -481,15 +496,6 @@ local group_lfos = Group {
     item_values = {0,1}
   },
   Parameter {
-    id = "slew_lfo_1",
-    name = "LFO 1 Slew",
-    type = "nrpn",
-    number = 86,
-    default_value = 0, 
-    display_min_value = 0,
-    display_max_value = 127
-  },
-  Parameter {
     id = "slew_lfo_2",
     name = "LFO 2 Slew",
     type = "nrpn",
@@ -499,7 +505,6 @@ local group_lfos = Group {
     display_max_value = 127
   },
 }
-
 
 -- PORTAMENTO --
 local group_portamento = Group {
@@ -736,7 +741,7 @@ local group_aftertouch = Group {
     name = "Filter Freq",
     type = "nrpn",
     number = 74,
-    default_value = 0,
+    default_value = 63,
     display_min_value = -63,
     display_max_value = 63
   },
@@ -745,10 +750,79 @@ local group_aftertouch = Group {
     name = "LFO 1 to Osc Pitch",
     type = "nrpn",
     number = 75,
-    default_value = 0,
+    default_value = 63,
     display_min_value = -63,
     display_max_value = 63
   },
+  Parameter {
+    id = "aftertouch_lfo_2_speed",
+    name = "LFO 2 Speed",
+    type = "nrpn",
+    number = 76,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+}
+
+-- MOD WHEEL --
+local group_modwheel = Group {
+  name = "Mod Wheel",
+  Parameter {
+    id = "mod_wh_lfo_2_filter",
+    name = "LFO 2 Filter Freq",
+    type = "nrpn",
+    number = 71,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "mod_wh_lfo_1_to_osc_pitch",
+    name = "LFO 1 to Osc Pitch",
+    type = "nrpn",
+    number = 70,
+    default_value = 63,
+    display_min_value = -63,
+    display_max_value = 63
+  },
+  Parameter {
+    id = "mod_wh_osc_2_pitch",
+    name = "OSC 2 Pitch",
+    type = "nrpn",
+    number = 78,
+    default_value = 63,
+    display_min_value = -63,
+    display_max_value = 63
+  },
+}
+
+-- OTHER --
+local group_other = Group {
+  name = "Other",
+  Parameter {
+    id = "mod",
+    name = "Mod",
+    type = "cc",
+    number = 0,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "sustain",
+    name = "Sustain",
+    type = "cc",
+    number = 64,
+    default_value = 0,
+    display_min_value = 0,
+    display_max_value = 127
+  },
+  Parameter {
+    id = "pitchend",
+    name = "Pitchbend",
+    type = "pitchbend",
+  }
 }
 
 -- Synth definition -----------------------------------------------------------
@@ -757,22 +831,28 @@ return SynthDefinition {
   name = "Novation Bass Station II",
   author = "PBF [pbf@severeddigit.ca]",
   beta = true,
-  --delay_between_midi_messages = 10,
   omit_nrpn_lsb = true,
   content_height = 800,
   Section {
-    sysex_message_template = { 0xf0, 0x00, 0x20, 0x29, 0x00, 0x33, 0x00, 0x40, 0xf7},
-    group_oscillator_1,
-    group_oscillator_2,
-    group_sub_oscillator,
-    group_portamento,
-    group_mixer,
-    group_filter,
-    group_lfos,
-    group_envelope,
-    group_effects,
-    group_velocity,
-    group_arp,
-    group_aftertouch
+      name = "Main",
+        sysex_message_template = { 0xf0, 0x00, 0x20, 0x29, 0x00, 0x33, 0x00, 0x40, 0xf7},
+        group_oscillator_1,
+        group_oscillator_2,
+        group_sub_oscillator,
+        group_portamento,               
+        group_filter,
+        group_mixer,
+        group_envelope,
+        group_lfo_1,
+        group_lfo_2,
+        group_effects,
+        group_arp,
+      },
+   Section {
+        name = "Other",
+        group_velocity,
+        group_aftertouch,
+        group_modwheel,
+        group_other       
   }
 }
