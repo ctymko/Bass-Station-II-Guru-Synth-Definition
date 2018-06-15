@@ -3,9 +3,9 @@ local multiRefObjects = {
 
 } -- multiRefObjects
 local obj1 = {
-	["old_settings"] = {
-	};
 	["settings"] = {
+	};
+	["old_settings"] = {
 	};
 	["file_name"] = "D:\\DAW-Boiler\\Projects\\Renoise Sound Design\\BS2-TESTING-Diddy.xrns";
 }

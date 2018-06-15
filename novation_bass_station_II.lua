@@ -15,11 +15,11 @@ local group_oscillator_1 = Group {
     name = "Fine",
     type = "cc",
     number = 26,
-    default_value = 63, 
+    default_value = 64, 
     display_min_value = -100,
     display_max_value = 100
   },
-    Parameter {
+  Parameter {
     id = "osc_1_coarse",
     name = "Coarse",
     type = "cc",
@@ -28,7 +28,7 @@ local group_oscillator_1 = Group {
     display_min_value = -12,
     display_max_value = 12
   },
-    Parameter {
+  Parameter {
     id = "osc_1_waveform",
     name = "Waveform", 
     type = "nrpn",
@@ -37,16 +37,16 @@ local group_oscillator_1 = Group {
     items = {"sine","tri","saw","pulse"},
     item_values = {0,1,2,3},
   },
-    Parameter {
+  Parameter {
     id = "osc_1_mod_env_depth",
     name = "Mod Env Depth",
     type = "cc",
     number = 71,
-    default_value = 63, 
+    default_value = 64, 
     display_min_value = -63,
     display_max_value = 63
   },
-    Parameter {
+  Parameter {
     id = "osc_1_lfo_depth",
     name = "LFO 1 Depth",
     type = "cc",
@@ -55,16 +55,16 @@ local group_oscillator_1 = Group {
     display_min_value = -127,
     display_max_value = 127
   },
-    Parameter {
+  Parameter {
     id = "osc_1_mod_env_pw_mod_amount",
     name = "Mod Env PW",
     type = "cc",
     number = 72,
-    default_value = 63, 
+    default_value = 64, 
     display_min_value = -63,
     display_max_value = 63
   },
-    Parameter {
+  Parameter {
     id = "osc_1_LFO_2_PW",
     name = "LFO 2 PW",
     type = "cc",
@@ -73,7 +73,7 @@ local group_oscillator_1 = Group {
     display_min_value = -90,
     display_max_value = 90
   },
-    Parameter {
+  Parameter {
     id = "osc_1_pw_amount",
     name = "Manual PW Amount",
     type = "cc",
@@ -82,7 +82,7 @@ local group_oscillator_1 = Group {
     display_min_value = -90,
     display_max_value = 90
   },
-    Parameter {
+  Parameter {
     id = "bend_amount",
     name = "Bend_Amount",
     type = "cc",
@@ -127,7 +127,7 @@ local group_oscillator_2 = Group {
     display_min_value = -100,
     display_max_value = 100
   },
-    Parameter {
+  Parameter {
     id = "osc_2_coarse",
     name = "Coarse",
     type = "cc",
@@ -136,7 +136,7 @@ local group_oscillator_2 = Group {
     display_min_value = -12,
     display_max_value = 12
   },
-    Parameter {
+  Parameter {
     id = "osc_2_waveform",
     name = "Waveform", 
     type = "nrpn",
@@ -144,7 +144,7 @@ local group_oscillator_2 = Group {
     items = {"sine","tri","saw","pulse"},
     item_values = {0,1,2,3},
   },
-    Parameter {
+  Parameter {
     id = "osc_2_mod_env_depth",
     name = "Mod Env Depth",
     type = "cc",
@@ -153,7 +153,7 @@ local group_oscillator_2 = Group {
     display_min_value = -63,
     display_max_value = 63
   },
-    Parameter {
+  Parameter {
     id = "osc_2_lfo_1_depth",
     name = "LFO 1 Depth",
     type = "cc",
@@ -162,7 +162,7 @@ local group_oscillator_2 = Group {
     display_min_value = -127,
     display_max_value = 127
   },
-    Parameter {
+  Parameter {
     id = "osc_2_mod_env_pw_mod_amount",
     name = "Mod Env PW",
     type = "cc",
@@ -171,7 +171,7 @@ local group_oscillator_2 = Group {
     display_min_value = -63,
     display_max_value = 63
   },
-    Parameter {
+  Parameter {
     id = "osc_2_LFO_2_PW",
     name = "LFO 2 PW",
     type = "cc",
@@ -180,7 +180,7 @@ local group_oscillator_2 = Group {
     display_min_value = -90,
     display_max_value = 90
   },
-    Parameter {
+  Parameter {
     id = "osc_2_pw_amount",
     name = "Manual PW Amount",
     type = "cc",
@@ -203,7 +203,7 @@ local group_sub_oscillator = Group {
     items = {"-1","-2"},
     item_values = {63},
   },
-    Parameter {
+  Parameter {
     id = "sub_osc_waveform",
     name = "Waveform", 
     type ="cc",
@@ -211,75 +211,75 @@ local group_sub_oscillator = Group {
     default_value = 1,
     items = {"sine","sq1","sq2"},
     item_values = {0,1,2},
-  }
+    }
 }
 
 -- MIXER --
 local group_mixer = Group {
-  name = "Mixer",
-  Parameter {
-    id = "osc_1_level",
-    name = "Osc 1 Level",
-    type = "cc",
-    number = 20,
-    default_value = 127,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-   Parameter {
-    id = "osc_2_level",
-    name = "Osc 2 Level",
-    type = "cc",
-    number = 21,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-  Parameter {
-    id = "sub_osc_level",
-    name = "Sub Osc Level",
-    type = "cc",
-    number = 22,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-  Parameter {
-    id = "noise_level",
-    name = "Noise Level",
-    type = "cc",
-    number = 23,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-  Parameter {
-    id = "ring_mod_level",
-    name = "Ring Mod Level",
-    type = "cc",
-    number = 24,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-  Parameter {
-    id = "external_signal_level",
-    name = "External Signal Level",
-    type = "cc",
-    number = 25,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 255
-  },
-  Parameter {
-    id = "limiter",
-    name = "Limiter",
-    type = "cc",
-    number = 95,
-    default_value = 0,
-    display_min_value = 0,
-    display_max_value = 127
-  }
+    name = "Mixer",
+    Parameter {
+      id = "osc_1_level",
+      name = "Osc 1 Level",
+      type = "cc",
+      number = 20,
+      default_value = 127,
+      display_min_value = 0,
+      display_max_value = 255
+    },
+    Parameter {
+      id = "osc_2_level",
+      name = "Osc 2 Level",
+      type = "cc",
+      number = 21,
+      default_value = 0,
+      display_min_value = 0,
+      display_max_value = 255
+    },
+    Parameter {
+      id = "sub_osc_level",
+      name = "Sub Osc Level",
+      type = "cc",
+      number = 22,
+      default_value = 0,
+      display_min_value = 0,
+      display_max_value = 255
+    },
+    Parameter {
+      id = "noise_level",
+      name = "Noise Level",
+      type = "cc",
+      number = 23,
+      default_value = 0,
+      display_min_value = 0,
+      display_max_value = 255
+    },
+    Parameter {
+      id = "ring_mod_level",
+      name = "Ring Mod Level",
+      type = "cc",
+      number = 24,
+      default_value = 0,
+      display_min_value = 0,
+      display_max_value = 255
+    },
+    Parameter {
+      id = "external_signal_level",
+      name = "External Signal Level",
+      type = "cc",
+      number = 25,
+      default_value = 0,
+      display_min_value = 0,
+      display_max_value = 255
+    },
+    Parameter {
+      id = "limiter",
+      name = "Limiter",
+      type = "cc",
+      number = 95,
+      default_value = 0,
+      display_min_value = 0,
+      display_max_value = 127
+    }
 }
 
 -- FILTER ------------------------------------------------------
@@ -308,7 +308,6 @@ local group_filter = Group {
       name = "Shape",
       type = "cc",
       number = 84,
-      --default_value = 1, 
       items = {"LP","BP","HP"},
       item_values = {0,1,2}
     },
@@ -320,7 +319,7 @@ local group_filter = Group {
       default_value = 127, 
       display_min_value = 0,
       display_max_value = 255
-  },
+    },
     Parameter {
       id = "filter_resonance",
       name = "Resonance",
@@ -356,7 +355,7 @@ local group_filter = Group {
       default_value = 0, 
       display_min_value = 0,
       display_max_value = 127
-    },
+    }
 }
 
 -- LFO 1 -------------------------------------------
@@ -429,7 +428,7 @@ local group_lfo_1 = Group {
     default_value = 0, 
     display_min_value = 0,
     display_max_value = 127
-  },
+  }
 }
 
 
@@ -503,7 +502,7 @@ local group_lfo_2 = Group {
     default_value = 0, 
     display_min_value = 0,
     display_max_value = 127
-  },
+  }
 }
 
 -- PORTAMENTO --
@@ -750,7 +749,7 @@ local group_aftertouch = Group {
     name = "LFO 1 to Osc Pitch",
     type = "nrpn",
     number = 75,
-    default_value = 63,
+    default_value = 64,
     display_min_value = -63,
     display_max_value = 63
   },
@@ -762,7 +761,7 @@ local group_aftertouch = Group {
     default_value = 0,
     display_min_value = 0,
     display_max_value = 127
-  },
+  }
 }
 
 -- MOD WHEEL --
@@ -794,7 +793,7 @@ local group_modwheel = Group {
     default_value = 63,
     display_min_value = -63,
     display_max_value = 63
-  },
+  }
 }
 
 -- OTHER --
